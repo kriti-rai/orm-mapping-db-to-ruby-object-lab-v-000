@@ -56,10 +56,6 @@ class Student
   end
 
   def self.count_all_students_in_grade_9
-    sql = <<-SQL (
-      SELECT * FROM students
-      WHERE grade = 9
-    )
-    DB[:conn].execute(sql)
+    DB[:conn].execute("SELECT * FROM students WHERE grade = 9")
   end
 end
