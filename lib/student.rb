@@ -61,8 +61,8 @@ class Student
   def self.students_below_12th_grade
     DB[:conn].execute("SELECT * FROM students WHERE grade<12")
   end
-  def self.count_all_students_in_grade10
-    DB[:conn].execute("SELECT * FROM students WHERE grade = 10")
+  def self.first_X_students_in_grade_10
+    DB[:conn].execute("SELECT * FROM students WHERE grade = 10 LIMIT X")
   end
   def self.count_all_students_in_grade_X
     DB[:conn].execute("SELECT * FROM students WHERE grade = 'X'")
