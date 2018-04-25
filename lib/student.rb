@@ -58,24 +58,21 @@ class Student
   def self.count_all_students_in_grade_9
     DB[:conn].execute("SELECT * FROM students WHERE grade = 9")
   end
+
   def self.students_below_12th_grade
     DB[:conn].execute("SELECT * FROM students WHERE grade<12")
   end
+
   def self.first_X_students_in_grade_10(x)
     DB[:conn].execute("SELECT * FROM students WHERE grade = 10 LIMIT ?", x)
   end
+
   def self.first_student_in_grade_10
     DB[:conn].execute("SELECT * FROM students WHERE grade = 10 LIMIT 1").map{|row| self.new_from_db(row)}.first
   end
+  
   def self.all_students_in_grade_X(x)
     DB[:conn].execute("SELECT * FROM students WHERE grade = ?", x).map{|row| self.new_from_db(row)}
   end
-
-
-
-
-
-
-
 
 end
